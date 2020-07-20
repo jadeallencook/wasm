@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASM | Convert C To JavaScript</title>
+    <script src="wasm.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WASM</h1>
+      <p>Convert C to JS</p>
+    </header>
+    <section>
+      <h2>Example</h2>
+      <p>1 + 2 = <span id="output"></span></p>
+      <p>This is being computed using WebAssembly!</p>
+      <p>
+        <a href="https://github.com/jadeallencook/wasm" target="_blank"
+          >GitHub</a
+        >
+      </p>
+    </section>
+    <section>
+      <h2>Getting Started</h2>
+      <p>
+        Let's first create a simple C program that exports an "add" function:
+      </p>
+      <div class="code">
+        <span>./program.c</span>
+        <div>
+          #include &lt;webassembly.h&gt;<br />
+          <br />
+          export int add(int a, int b) {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br />
+          }
+        </div>
+      </div>
+      <p>
+        Next we will need to import WASM into the head of our HTML file and then
+        use WASM to import our function:
+      </p>
+      <div class="code">
+        <span>./index.html</span>
+        <div>
+          &lt;head&gt;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="wasm.js"&gt;&lt;/script&gt;<br />
+          &lt;/head&gt;<br />
+          &lt;body&gt;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;script&gt;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wasm('program.wasm').then(({
+          add } ) => {
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(add(1,
+          2));<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br />
+          &lt;/body&gt;
+        </div>
+      </div>
+      <p>
+        Now convert the C program and launch a dev server (localhost:8080):
+      </p>
+      <div class="code">
+        <span>shell</span>
+        <div>$ npm start</div>
+      </div>
+    </section>
+    <footer>
+      Developed by @jadeallencook
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

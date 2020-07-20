@@ -1,0 +1,20 @@
+{
+  "name": "wasm",
+  "version": "1.0.0",
+  "description": "Easily export functions written in C code and import them into JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx wa compile -o program.wasm program.c && php -S localhost:8080",
+    "test": "jest"
+  },
+  "keywords": [
+    "webassembly",
+    "javascript",
+    "c"
+  ],
+  "author": "@jadeallencook",
+  "license": "ISC",
+  "dependencies": {
+    "webassembly": "^0.11.0"
+  }
+}
