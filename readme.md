@@ -1,10 +1,10 @@
 # WASM
 
-Easily export functions written in C code and import them into JavaScript.
+Easily export functions written in C and import them into JavaScript.
 
 ## Getting Started
 
-Let's first create a simple C program that exports an "add" function (program.c):
+Let's first create a simple C program that exports an "add" function:
 
 ```c
 #include <webassembly.h>
@@ -14,17 +14,12 @@ export int add(int a, int b) {
 }
 ```
 
-Next we will need to import WASM into the head of our HTML file:
+Next we will need to import WASM into the head of our HTML file and then use WASM to import our function:
 
 ```html
 <head>
   <script src="wasm.js"></script>
 </head>
-```
-
-Then we can use WASM to import our functions from our WebAssembly file:
-
-```html
 <body>
   <script>
     wasm('program.wasm').then(({ add } ) => {

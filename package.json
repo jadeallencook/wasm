@@ -1,7 +1,7 @@
 {
   "name": "wasm",
   "version": "1.0.0",
-  "description": "Easily export functions written in C code and import them into JavaScript.",
+  "description": "Easily export functions written in C and import them into JavaScript.",
   "main": "index.js",
   "scripts": {
     "start": "npx wa compile -o program.wasm program.c && php -S localhost:8080",
