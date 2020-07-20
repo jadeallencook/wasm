@@ -14,7 +14,7 @@ export int add(int a, int b) {
 }
 ```
 
-Next we will need to import WASM into the head of our HTML file and then use WASM to import our function:
+Next, include WASM into the head then use WASM to import our function:
 
 ```html
 <head>
@@ -29,19 +29,21 @@ Next we will need to import WASM into the head of our HTML file and then use WAS
 </body>
 ```
 
-Now let's convert the C file to WASM and launch a local dev server by running:
+Now convert the C to WASM and launch a local dev server by running:
 
 ```ssh
-npm start
+$ npm start
 ```
+
+Launch your browser (localhost:8080) and open your console!
 
 ## NPM Start
 
 When you run "npm start" you're actually running these two commands:
 
 ```ssh
-npx wa compile -o program.wasm program.c
-php -S localhost:8080
+$ npx wa compile -o program.wasm program.c
+$ php -S localhost:8080
 ```
 
 The first one will compile "program.c" into "program.wasm".
